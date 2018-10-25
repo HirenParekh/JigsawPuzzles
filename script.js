@@ -2,7 +2,7 @@ $(document).ready(function () {
     colors = ['#795548', '#f44336', '#03a9f4'];
     new Jigsaw().init({
         container: '#slide0',
-        image: 'images/jerry.png',
+        image: 'images/jerry1.png',
         gridSize: 3
     });
     new Jigsaw().init({
