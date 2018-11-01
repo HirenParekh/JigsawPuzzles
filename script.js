@@ -1,8 +1,8 @@
 $(document).ready(function () {
     colors = ['#795548', '#f44336', '#03a9f4'];
     $('.wrapper').css({
-        height:Math.min($(window).width(),$(window).height()) - 50,
-        width:Math.min($(window).width(),$(window).height()) - 50,
+        height:Math.min($(window).width(),512) - 20,
+        width:Math.min($(window).width(),512) -20,
     })
     new Jigsaw().init({
         container: '#slide0',

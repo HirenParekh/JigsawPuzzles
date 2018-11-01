@@ -79,3 +79,10 @@ body {
 .slick-disabled{
     opacity: 0;
 }
+
+
+@media(max-width:512px){
+    .slick-arrow{
+        display: none !important;     
+    }   
+}

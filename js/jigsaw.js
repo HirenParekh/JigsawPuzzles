@@ -5,7 +5,7 @@ var Jigsaw = function () {
     var gridSize = 3;
     var widthFactor = 1;
     var heightFactor = 1;
-    var puzzleWidht = puzzleHeight = Math.min($(window).width(),$(window).height()) - 50;
+    var puzzleWidht = puzzleHeight = Math.min($(window).width(),512) - 20;
 
     var Piece = function (row, col, size) {
         this.row = row;
