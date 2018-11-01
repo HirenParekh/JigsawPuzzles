@@ -1,5 +1,9 @@
 $(document).ready(function () {
     colors = ['#795548', '#f44336', '#03a9f4'];
+    $('.wrapper').css({
+        height:Math.min($(window).width(),$(window).height()) - 50,
+        width:Math.min($(window).width(),$(window).height()) - 50,
+    })
     new Jigsaw().init({
         container: '#slide0',
         image: 'images/jerry1.png',
@@ -26,9 +30,7 @@ $(document).ready(function () {
     });
     $('.slider').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
         let slide = '#slide' + nextSlide;
-        console.log(slide);
         var newWidth = $(slide).width();
-        console.log(newWidth);
         $('.wrapper').animate({
             width: newWidth
         }, 400);

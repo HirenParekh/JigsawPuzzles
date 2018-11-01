@@ -3,6 +3,9 @@ var Jigsaw = function () {
     var puzzleImg = {};
     var pieces = [];
     var gridSize = 3;
+    var widthFactor = 1;
+    var heightFactor = 1;
+    var puzzleWidht = puzzleHeight = Math.min($(window).width(),$(window).height()) - 50;
 
     var Piece = function (row, col, size) {
         this.row = row;
@@ -31,6 +34,8 @@ var Jigsaw = function () {
                 'background-image': 'url(' + puzzleImg.url + ')',
                 'background-position-x': this.row * size * -1,
                 'background-position-y': this.col * size * -1,
+                'background-size': puzzleWidht,
+                'background-repeat': 'no-repeat'
             });
             $(container).append(this.pieceEle);
         }
@@ -51,11 +56,12 @@ var Jigsaw = function () {
         img.onload = function (e) {
             puzzleImg.height = img.naturalHeight;
             puzzleImg.width = img.naturalWidth;
+            widthFactor = puzzleWidht/img.naturalWidth;
+            heightFactor = puzzleHeight/img.naturalHeight;
             puzzleImg.url = img.src;
-            var piceSize = puzzleImg.width / gridSize;
             $(container).css({
-                width: gridSize * piceSize,
-                height: gridSize * piceSize
+                width: puzzleWidht,
+                height: puzzleHeight
             })
             preparePieces();
             setTimeout(function () {
@@ -136,7 +142,7 @@ var Jigsaw = function () {
     }
 
     function preparePieces() {
-        var piceSize = puzzleImg.width / gridSize;
+        var piceSize = puzzleWidht/gridSize;
         for (var i = 0; i < gridSize; i++) {
             for (var j = 0; j < gridSize; j++) {
                 var piece = new Piece(i, j, piceSize);
